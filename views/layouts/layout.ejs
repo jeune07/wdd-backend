@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head') %>
+  <head>
+    <%- include('../partials/head') %>
+    <!-- Ensure this file exists -->
+  </head>
   <body>
     <div id="wrapper">
       <%- include('../partials/header') %> <%- include('../partials/navigation')
       %>
 
-      <main><%- body %></main>
+      <main>
+        <%- body %>
+        <!-- This will be replaced by content from views -->
+      </main>
+
       <%- include('../partials/footer') %>
     </div>
   </body>

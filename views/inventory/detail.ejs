@@ -1,0 +1,22 @@
+<%- include('../partials/header') %> <%- include('../partials/navigation') %>
+
+<main>
+  <h1><%= vehicle.make %> <%= vehicle.model %></h1>
+  <img
+    src="<%= vehicle.image %>"
+    alt="<%= vehicle.make %> <%= vehicle.model %>"
+  />
+
+  <p>
+    <strong>Price:</strong> $<%= new
+    Intl.NumberFormat('en-US').format(vehicle.price) %>
+  </p>
+  <p><strong>Year:</strong> <%= vehicle.year %></p>
+  <p>
+    <strong>Mileage:</strong> <%= new
+    Intl.NumberFormat('en-US').format(vehicle.mileage) %> miles
+  </p>
+  <p><strong>Description:</strong> <%= vehicle.description %></p>
+</main>
+
+<%- include('../partials/footer') %>

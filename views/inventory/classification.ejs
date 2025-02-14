@@ -1,3 +1,11 @@
-<% if (title) { %>
-<h1><%= title %></h1>
-<% } else { res.redirect('/') } %> <%# messages() %> <%# messages() %>
+<main>
+  <h1><%= title %></h1>
+
+  <!-- ✅ Fix: Use `<%- grid %>` instead of `<%= grid %>` -->
+  <div id="inv-display">
+    <%- grid %>
+    <!-- ✅ This ensures HTML is rendered instead of displayed as text -->
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
