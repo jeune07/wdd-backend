@@ -58,8 +58,26 @@ async function getInventoryByClassificationId(classificationId) {
   }
 }
 
+async function getVehicleById(vehicleId) {
+  try {
+    const sql = "SELECT * FROM inventory WHERE inv_id = $1";
+    const result = await db.query(sql, [vehicleId]);
+
+    if (!result.rows.length) {
+      console.error(`Error: No vehicle found for ID ${vehicleId}`);
+      return null;
+    }
+
+    return result.rows[0]; // ✅ Return only one result
+  } catch (error) {
+    console.error("Error fetching vehicle:", error);
+    throw error;
+  }
+}
+
 module.exports = {
   getClassifications,
   getClassificationById,
   getInventoryByClassificationId,
+  getVehicleById,
 };
