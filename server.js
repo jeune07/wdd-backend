@@ -5,6 +5,8 @@ const env = require("dotenv").config();
 const app = express();
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute");
+const errorRoute = require("./routes/errorRoute");
+const errorMiddleware = require("./middleware/errorMiddleware");
 
 // Set views directory
 app.set("views", path.join(__dirname, "views"));
@@ -13,7 +15,6 @@ app.set("view engine", "ejs");
 // Use express-ejs-layouts middleware
 app.use(expressLayouts);
 
-// ✅ Fix: Set the layout directory correctly
 app.set("layout", "layouts/layout"); // Ensure Express finds it inside views/layouts/
 
 // Serve static files
@@ -27,6 +28,8 @@ app.use("/inv", inventoryRoute);
 app.get("/", function (req, res) {
   res.render("index", { title: "Home", layout: "layouts/layout" }); // ✅ Ensure correct layout path
 });
+app.use(errorRoute);
+app.use(errorMiddleware);
 
 // Start server
 const port = process.env.PORT || 5500;

@@ -90,9 +90,10 @@ Util.getNav = async function () {
     }
 
     let list = "<ul>";
-    list += '<li><a href="/" title="Home page">Home</a></li>';
+    list +=
+      '<li class="li-style-nav"><a href="/" title="Home page">Home</a></li>';
     data.forEach((row) => {
-      list += `<li><a href="/inv/type/${row.classification_id}" title="See our inventory of ${row.classification_name} vehicles">${row.classification_name}</a></li>`;
+      list += `<li class="li-style-nav"><a href="/inv/type/${row.classification_id}" title="See our inventory of ${row.classification_name} vehicles">${row.classification_name}</a></li>`;
     });
     list += "</ul>";
     return list;
