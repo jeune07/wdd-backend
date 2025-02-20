@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<main>
+  <h1>Account Management</h1>
+
+  <% if (message) { %>
+  <p class="flash-message"><%= message %></p>
+  <% } %>
+
+  <h2>Welcome, <%= user.account_firstname %></h2>
+
+  <ul>
+    <li><a href="/account/update">Update Account Info</a></li>
+    <li><a href="/account/change-password">Change Password</a></li>
+
+    <% if (user.account_type === 'admin' || user.account_type === 'employee') {
+    %>
+    <h3>Inventory Management</h3>
+    <p><a href="/inv/">Manage Inventory</a></p>
+    <% } %>
+  </ul>
+</main>
+
+<%- include('../partials/footer') %>

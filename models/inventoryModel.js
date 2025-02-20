@@ -7,6 +7,9 @@ async function getClassifications() {
   try {
     const sql = "SELECT * FROM classification ORDER BY classification_name";
     const result = await db.query(sql);
+
+    console.log("Fetched classifications:", result.rows); // ✅ Debugging log
+
     return result.rows || [];
   } catch (error) {
     console.error("Error fetching classifications:", error);
