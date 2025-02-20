@@ -1,0 +1,19 @@
+<main class="add-form">
+  <h1>Add New Classification</h1>
+
+  <% if (message) { %>
+  <p class="flash-message"><%= message %></p>
+  <% } %>
+
+  <form action="/inv/add-classification" method="POST">
+    <label for="classification_name">Classification Name:</label>
+    <input
+      type="text"
+      id="classification_name"
+      name="classification_name"
+      required
+      pattern="[a-zA-Z0-9]+"
+    />
+    <button type="submit">Add Classification</button>
+  </form>
+</main>

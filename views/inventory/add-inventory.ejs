@@ -1,0 +1,61 @@
+<main class="add-form-conatainer">
+  <form action="/inv/add-inventory" method="POST" class="add-form">
+    <label class="form-children" for="classification_id">Classification:</label>
+    <%- classificationList %>
+    <label class="form-children" for="inv_make">Make:</label>
+    <input
+      class="form-children"
+      type="text"
+      id="inv_make"
+      name="inv_make"
+      required
+    />
+
+    <label class="form-children" for="inv_model">Model:</label>
+    <input
+      class="form-children"
+      type="text"
+      id="inv_model"
+      name="inv_model"
+      required
+    />
+
+    <label class="form-children" for="inv_price">Price:</label>
+    <input
+      class="form-children"
+      type="number"
+      id="inv_price"
+      name="inv_price"
+      required
+    />
+
+    <label class="form-children" for="inv_description">Description:</label>
+    <textarea id="inv_description" name="inv_description" required></textarea>
+
+    <label class="form-children" for="inv_thumbnail"
+      >Thumbnail Image URL:</label
+    >
+
+    <input
+      class="form-children"
+      type="text"
+      id="inv_thumbnail"
+      name="inv_thumbnail"
+      value="/images/no-image.jpg"
+      required
+    />
+
+    <label class="form-children" for="inv_image">Full-Size Image URL:</label>
+
+    <input
+      class="form-children"
+      type="text"
+      id="inv_image"
+      name="inv_image"
+      value="/images/no-image.jpg"
+      required
+    />
+
+    <button type="submit">Add Vehicle</button>
+  </form>
+</main>

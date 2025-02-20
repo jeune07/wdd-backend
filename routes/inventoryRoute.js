@@ -1,11 +1,22 @@
 const express = require("express");
 const router = express.Router();
-const invController = require("../controllers/invController"); // ✅ Ensure correct import path
+const invController = require("../controllers/invController");
 
-// ✅ Route for classification view
+// ✅ Inventory Management View
+router.get("/", invController.renderManagementView);
+
+// ✅ Classification Routes
 router.get("/type/:classificationId", invController.buildByClassificationId);
 
-// ✅ Route for vehicle details view
+// ✅ Vehicle Details Route
 router.get("/detail/:id", invController.buildByVehicleId);
+
+// ✅ Add New Classification
+router.get("/add-classification", invController.renderAddClassification);
+router.post("/add-classification", invController.addClassification);
+
+// ✅ Add New Inventory Item
+router.get("/add-inventory", invController.renderAddInventory);
+router.post("/add-inventory", invController.addInventory);
 
 module.exports = router;
